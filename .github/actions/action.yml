@@ -298,6 +298,35 @@ runs:
         echo "CONFIG_LTO_CLANG=y" >> ./common/arch/arm64/configs/gki_defconfig
         echo "CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE=y" >> "./common/arch/arm64/configs/gki_defconfig"
         echo "CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE_O3=n" >> "./common/arch/arm64/configs/gki_defconfig"
+        echo "CONFIG_HZ_300=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_PREEMPT=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_PREEMPT_DYNAMIC=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_SCHED_AUTOGROUP=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_CGROUP_SCHED=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_RT_GROUP_SCHED=n" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_SWAP=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_ZRAM=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_ZSMALLOC=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_ZRAM_DEF_COMP_LZ4=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_ZRAM_DEFAULT_DISKSIZE=19327352832" >> ./common/arch/arm64/configs/gki_defconfig   # 18 GB
+        echo "CONFIG_CGROUP_MEM_RES_CTLR=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_MEMCG_SWAP=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_TRANSPARENT_HUGEPAGE=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_KSM=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_PSI=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_ANDROID_LOW_MEMORY_KILLER=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_CPU_FREQ=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_CPU_FREQ_STAT=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_CPU_FREQ_GOV_SCHEDUTIL=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_CPU_FREQ_GOV_ONDEMAND=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_CPU_IDLE=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_SCHED_TUNE=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_UCLAMP_TASK=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_UCLAMP_BUCKETS_COUNT=5" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_MQ_IOSCHED_DEADLINE=y" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_IOSCHED_BFQ=n" >> ./common/arch/arm64/configs/gki_defconfig
+        echo "CONFIG_BLK_DEV_THROTTLING=n" >> ./common/arch/arm64/configs/gki_defconfig
+
 
     - name: Save Build Metadata
       shell: bash
