@@ -283,7 +283,7 @@ runs:
         echo "CONFIG_SND_SOC_QCOM_VOICE_UI=y" >> ./common/arch/arm64/configs/gki_defconfig
         echo "CONFIG_SND_SOC_QCOM_VOICE=y" >> ./common/arch/arm64/configs/gki_defconfig
         echo "CONFIG_SND_SOC_QCOM_SDW=y" >> ./common/arch/arm64/configs/gki_defconfig
-
+        echo "CONFIG_SND_SOC_QCOM_FLUENCE=y" >> ./common/arch/arm64/configs/gki_defconfig
 
 
     - name: Add BBR v1 Support
