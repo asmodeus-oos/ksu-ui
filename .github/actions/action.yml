@@ -452,6 +452,19 @@ runs:
         echo "CLANG_VERSION=$CLANG_VERSION" >> $GITHUB_ENV
         echo "CLANG_BIN_PATH=$CLANG_BIN_PATH" >> $GITHUB_ENV
 
+    - name: Zip the CONFIG directory
+        run: |
+          echo "Zipping everything in $CONFIG..."
+          zip -r "${CONFIG}.zip" "$CONFIG"
+          echo "Created zip: ${CONFIG}.zip"
+
+      # Optional: Upload the zip as a GitHub artifact
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: config-zip
+          path: "${CONFIG}.zip"
+
     - name: Build Kernel
       shell: bash
       run: |
