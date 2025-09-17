@@ -375,9 +375,10 @@ runs:
       run: |
         echo "Compressing $KERNEL_PATH..."
         TAR_FILE="$GITHUB_WORKSPACE/$CONFIG/kernel_platform.tar.xz"
-        # High compression with xz
         tar -cJf "$TAR_FILE" -C "$GITHUB_WORKSPACE/$CONFIG" kernel_platform
         echo "Compression done: $TAR_FILE"
+        # Export for later steps
+        echo "TAR_FILE=$TAR_FILE" >> "$GITHUB_ENV"
 
     - name: Upload kernel_platform archive
       uses: actions/upload-artifact@v4
