@@ -455,7 +455,7 @@ runs:
     - name: Zip the CONFIG directory
       run: |
         echo "Zipping everything in $CONFIG..."
-        zip -r "${CONFIG}.zip" "$CONFIG"
+        tar -czf kernel_platform.tar.gz kernel_platform
         echo "Created zip: ${CONFIG}.zip"
 
     - name: Upload zip artifact
