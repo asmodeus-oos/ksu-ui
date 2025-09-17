@@ -454,16 +454,17 @@ runs:
 
     - name: Zip the CONFIG directory
       run: |
+        cd "$CONFIG/kernel_platform"
         echo "Zipping everything in $CONFIG..."
         tar -czf kernel_platform.tar.gz kernel_platform
         echo "Created zip: ${CONFIG}.zip"
 
-    - name: Upload zip artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: config-zip
-        path: "${CONFIG}.zip"
-
+    - name: Zip the CONFIG directory
+  shell: bash
+  run: |
+    echo "Zipping everything in $CONFIG..."
+    zip -r "${CONFIG}.zip" "$CONFIG"
+    echo "Created zip: ${CONFIG}.zip"
     - name: Build Kernel
       shell: bash
       run: |
