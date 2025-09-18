@@ -233,20 +233,22 @@ runs:
         echo "ksu_version=${KSUVER:-unknown}" >> "$GITHUB_OUTPUT"
         echo "susfs_version=${SUSVER:-unknown}" >> "$GITHUB_OUTPUT"
 
-    - name: Compress kernel_platform
+    - name: Create and split highly-compressed archive
       shell: bash
       run: |
-        TAR_FILE="$GITHUB_WORKSPACE/$CONFIG/full_build.tar.xz"
-        tar -cJf "$TAR_FILE" -C "$GITHUB_WORKSPACE" "$CONFIG"
-        echo "Compression done: $TAR_FILE"
-        # Export for later steps
-        echo "TAR_FILE=$TAR_FILE" >> "$GITHUB_ENV"
+        echo "Archiving and compressing $GITHUB_WORKSPACE/$CONFIG ..."
+        ARCHIVE_NAME="${CONFIG}.tar.xz"
+        cd "$GITHUB_WORKSPACE"
+        # Use xz with extreme compression (-9e)
+        tar -c "$CONFIG" | xz -9e -T0 | split -b 2000m - "${ARCHIVE_NAME}.part"
+        echo "Created split archives: ${ARCHIVE_NAME}.part*"
 
-    - name: Upload kernel_platform archive
+    - name: Upload split compressed artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: kernel_platform
-        path: /home/runner/work/ksu-ui/ksu-ui/OP10pro/kernel_platform.tar.xz
+      name: config-archive
+      path: ${{ github.workspace }}/${CONFIG}.tar.xz.part*
+      compression-level: 0  # don't recompress
 
     - name: Customize Kernel Branding
       shell: bash
