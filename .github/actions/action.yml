@@ -248,7 +248,7 @@ runs:
       uses: actions/upload-artifact@v4
       with:
         name: kernel_platform
-        path: "$TAR_FILE"
+        path: /home/runner/work/ksu-ui/ksu-ui/OP10pro/kernel_platform.tar.xz
 
     - name: Customize Kernel Branding
       shell: bash
