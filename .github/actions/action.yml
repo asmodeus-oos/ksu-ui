@@ -245,7 +245,7 @@ runs:
 
     # Upload compressed artifact
     - name: Upload kernel_platform archive
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: kernel_platform
         path: "$TAR_FILE"
