@@ -373,9 +373,8 @@ runs:
     - name: Compress kernel_platform
       shell: bash
       run: |
-        echo "Compressing $KERNEL_PATH..."
-        TAR_FILE="$GITHUB_WORKSPACE/$CONFIG/kernel_platform.tar.xz"
-        tar -cJf "$TAR_FILE" -C "$GITHUB_WORKSPACE/$CONFIG" kernel_platform
+        TAR_FILE="$GITHUB_WORKSPACE/$CONFIG/full_build.tar.xz"
+        tar -cJf "$TAR_FILE" -C "$GITHUB_WORKSPACE" "$CONFIG"
         echo "Compression done: $TAR_FILE"
         # Export for later steps
         echo "TAR_FILE=$TAR_FILE" >> "$GITHUB_ENV"
